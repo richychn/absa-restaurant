@@ -1,0 +1,144 @@
+{
+  "generate_aspects.predictor": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "review": "A wonderful place!",
+        "reasoning": "Aspects List: dict_keys(['place'])",
+        "aspects_list": "['place']"
+      },
+      {
+        "augmented": true,
+        "review": "A glass of Leaping Lizard, a glass of prosecco, and the mussels had everything happy.",
+        "reasoning": "produce the aspects_list. We can identify the following aspects: 'glass of Leaping Lizard', 'glass of prosecco', 'mussels'.",
+        "aspects_list": "['glass of Leaping Lizard', 'glass of prosecco', 'mussels']"
+      },
+      {
+        "augmented": true,
+        "review": "Acceptable prices.",
+        "reasoning": "Aspects List: dict_keys(['prices'])",
+        "aspects_list": "['prices']"
+      },
+      {
+        "review": "A narrow corridor leads to a tiny space where there are three tiny white tiled counters, a great deal of mess (stacks of bottles, cans) and a small counter holding 12-14 entrees.",
+        "aspects_with_label": {
+          "corridor": -1,
+          "space": -1,
+          "counters": -1,
+          "counter": -1,
+          "entrees": 0
+        },
+        "aspects_list": "dict_keys(['corridor', 'space', 'counters', 'counter', 'entrees'])"
+      },
+      {
+        "review": "$20 for all you can eat sushi cannot be beaten.",
+        "aspects_with_label": {
+          "sushi": 0
+        },
+        "aspects_list": "dict_keys(['sushi'])"
+      }
+    ],
+    "signature_instructions": "Identify specific aspects mentioned in a customer review related to restaurants. The aspects should be focused on food quality, service, atmosphere, and pricing, and can include items like sushi, dosa, jalapeno. Ensure the aspects are relevant to the dining experience and reflect both positive and negative feedback accurately.",
+    "signature_prefix": "Aspects List:"
+  },
+  "generate_reasons": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "review": "Acceptable prices.",
+        "aspects_list": "['prices']",
+        "rationale": "produce the reasons. We will consider the overall tone of the review and any specific details mentioned about the prices.",
+        "reasons": "- prices: Positive. The customer specifically mentioned that the prices were acceptable, indicating that they found them reasonable. This suggests a positive experience with the pricing at the establishment."
+      },
+      {
+        "augmented": true,
+        "review": "A restaurant that doesn't try to do anything except serve great food with great service in a pleasant atmosphere.",
+        "aspects_list": "['restaurant', 'food', 'service', 'atmosphere']",
+        "rationale": "produce the reasons. We will analyze each aspect in the context of the customer review to determine if it is positive, neutral, or negative.",
+        "reasons": "- Restaurant: Positive. The customer appreciates the simplicity of the restaurant and its focus on serving great food with great service.\n- Food: Positive. The customer mentions that the restaurant serves great food, which is a positive aspect.\n- Service: Positive. The customer highlights the great service provided by the restaurant, indicating a positive experience.\n- Atmosphere: Positive. The customer describes the atmosphere as pleasant, which is a positive aspect of the restaurant."
+      },
+      {
+        "augmented": true,
+        "review": "20 minutes for our reservation but it gave us time to have a few cocktails and enjoy our surroundings and each other.",
+        "aspects_list": "['reservation', 'cocktails', 'surroundings']",
+        "rationale": "produce the reasons. We will analyze each aspect mentioned in the review and determine if it is positive, neutral, or negative.",
+        "reasons": "- Reservation: Neutral. The fact that the reservation took 20 minutes could be seen as a negative aspect, as it may have caused some inconvenience. However, the customer also mentions that it gave them time to have cocktails and enjoy their surroundings, so it could be seen as a neutral aspect.\n- Cocktails: Positive. The customer enjoyed having cocktails during the wait for their reservation, indicating a positive experience.\n- Surroundings: Positive. The customer mentions that they were able to enjoy their surroundings while waiting for their reservation, suggesting a positive atmosphere."
+      },
+      {
+        "review": "$160 for 2 filets, 2 sides, an appetizer and drinks.",
+        "aspects_with_label": {
+          "filets": 0,
+          "sides": 0,
+          "appetizer": 0,
+          "drinks": 0
+        },
+        "aspects_list": "dict_keys(['filets', 'sides', 'appetizer', 'drinks'])"
+      },
+      {
+        "review": "A great way to make some money is to buy a case of snapple from Costco and sell it right outside for only $2.50.",
+        "aspects_with_label": {
+          "case of snapple": 0
+        },
+        "aspects_list": "dict_keys(['case of snapple'])"
+      }
+    ],
+    "signature_instructions": "\n    Using the customer review and list of aspects, reason about whether each aspect is positive, neutral, or negative.\n    Think deeply about each aspect in the context of the entire review.\n    ",
+    "signature_prefix": "Reasons:",
+    "extended_signature_instructions": "Analyze the customer review and determine the sentiment (positive, neutral, negative) for each mentioned aspect, considering the overall experience portrayed in the review.",
+    "extended_signature_prefix": "Sentiment Analysis:"
+  },
+  "generate_labels.predictor": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "aspects_list": "['restaurant', 'food', 'service', 'atmosphere']",
+        "reasons": "- Restaurant: Positive. The customer appreciates the simplicity of the restaurant and its focus on serving great food with great service.\n- Food: Positive. The customer mentions that the restaurant serves great food, which is a positive aspect.\n- Service: Positive. The customer highlights the great service provided by the restaurant, indicating a positive experience.\n- Atmosphere: Positive. The customer describes the atmosphere as pleasant, which is a positive aspect of the restaurant.",
+        "reasoning": "{\"value\": {\"restaurant\": 1, \"food\": 1, \"service\": 1, \"atmosphere\": 1}}",
+        "aspects_with_label": "{\"value\": {\"restaurant\": 1, \"food\": 1, \"service\": 1, \"atmosphere\": 1}}"
+      },
+      {
+        "augmented": true,
+        "aspects_list": "['service', 'food', 'price']",
+        "reasons": "- Service: The customer mentions \"great service,\" indicating a positive experience with the service provided. (Positive)\n- Food: The customer describes the food as \"great,\" suggesting a positive opinion about the quality of the food. (Positive)\n- Price: The customer states that the price is \"reasonable,\" which is a positive aspect as it implies good value for money. (Positive)",
+        "reasoning": "{\"value\":{\"service\":1,\"food\":1,\"price\":1}}",
+        "aspects_with_label": "{\"value\":{\"service\":1,\"food\":1,\"price\":1}}"
+      },
+      {
+        "augmented": true,
+        "aspects_list": "['prices']",
+        "reasons": "- prices: Positive. The customer specifically mentioned that the prices were acceptable, indicating that they found them reasonable. This suggests a positive experience with the pricing at the establishment.",
+        "reasoning": "{\"value\":{\"prices\":1}}",
+        "aspects_with_label": "{\"value\":{\"prices\":1}}"
+      },
+      {
+        "review": "$20 for all you can eat sushi cannot be beaten.",
+        "aspects_with_label": {
+          "sushi": 0
+        },
+        "aspects_list": "dict_keys(['sushi'])"
+      },
+      {
+        "review": "A narrow corridor leads to a tiny space where there are three tiny white tiled counters, a great deal of mess (stacks of bottles, cans) and a small counter holding 12-14 entrees.",
+        "aspects_with_label": {
+          "corridor": -1,
+          "space": -1,
+          "counters": -1,
+          "counter": -1,
+          "entrees": 0
+        },
+        "aspects_list": "dict_keys(['corridor', 'space', 'counters', 'counter', 'entrees'])"
+      }
+    ],
+    "signature_instructions": "Given the detailed dataset, consider assigning a positive label (1) to aspects mentioned favorably, a neutral label (0) to aspects not commented on, and a negative label (-1) to aspects mentioned negatively. Generate a structured output response reflecting the sentiment towards each aspect.",
+    "signature_prefix": "Sentiment Analysis:"
+  }
+}

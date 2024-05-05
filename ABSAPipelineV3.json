@@ -1,0 +1,350 @@
+{
+  "generate_aspects.predictor": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "review": "A wonderful place!",
+        "reasoning": "produce the aspects_list. We can identify the aspect \"place\" from the review.",
+        "aspects_list": "[\"place\"]"
+      },
+      {
+        "augmented": true,
+        "review": "A wonderful place!",
+        "error_aspects_list_0": "ValueError('json output should start and end with { and }')",
+        "reasoning": "produce the aspects_list. We need to identify the specific aspects mentioned in the customer review, such as \"wonderful place\".",
+        "aspects_list": "{\"value\": [\"place\"]}"
+      },
+      {
+        "augmented": true,
+        "review": "A cool bar with great food, and tons of excellent beer.",
+        "reasoning": "Aspects List: \n[\"bar\", \"food\", \"beer\"]",
+        "aspects_list": "{\"value\": [\"bar\", \"food\", \"beer\"]}"
+      },
+      {
+        "review": "After 2 tries by the waiter to take it away (we hadn't even looked at it yet, we had full beers yet to drink), the manager approached and told us they needed the table for people with reservations.",
+        "aspects": {
+          "waiter": -1,
+          "beers": 0,
+          "manager": -1,
+          "reservations": 1
+        }
+      },
+      {
+        "review": "Also, don't plan on asking for your favorite roll, if it's not on the menu, you can't have it.",
+        "aspects": {
+          "roll": -1,
+          "menu": -1
+        }
+      },
+      {
+        "review": "Also a little more expensive than your average bagel place.",
+        "aspects": {
+          "bagel": 0
+        }
+      },
+      {
+        "review": "After a seafood craving, i checked citysearch and chose to go to Fish based on a previous review and the citysearch info.",
+        "aspects": {
+          "seafood": 0
+        }
+      },
+      {
+        "review": "A great choice at any cost and a great deal.",
+        "aspects": {
+          "cost": 1
+        }
+      },
+      {
+        "review": "Ambiance is barely romantic but management tries.",
+        "aspects": {
+          "Ambiance": -1,
+          "management": 1
+        }
+      },
+      {
+        "review": "And the Tom Kha soup was pathetic.",
+        "aspects": {
+          "Tom Kha soup": -1
+        }
+      },
+      {
+        "review": "After we got our sashimi order, I could not believe how small the portions were!",
+        "aspects": {
+          "sashimi": 0,
+          "portions": -1
+        }
+      },
+      {
+        "review": "Add to that great service and great food at a reasonable price and you have yourself the beginning of a great evening.",
+        "aspects": {
+          "service": 1,
+          "food": 1,
+          "price": 1
+        }
+      },
+      {
+        "review": "All we received was an apology as we left to see our show without dinner.",
+        "aspects": {
+          "dinner": 0
+        }
+      },
+      {
+        "review": "And they provided a delicious dessert on the house!",
+        "aspects": {
+          "dessert": 1
+        }
+      },
+      {
+        "review": "All my co-workers were amazed at how small the dish was.",
+        "aspects": {
+          "dish": -1
+        }
+      },
+      {
+        "review": "All the NYU students love this place so it makes for a fun young atmosphere.",
+        "aspects": {
+          "atmosphere": 1
+        }
+      }
+    ],
+    "signature_instructions": "\n    Identify aspects from a customer review. The aspects must be words or phrases in the review. The aspect\n    is typically a noun, and it must be the narrowest word or phrase possible. The response must be a valid Python list.\n    ",
+    "signature_prefix": "Aspects List:"
+  },
+  "generate_reasons": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "review": "A wonderful place!",
+        "aspect": "place",
+        "rationale": "produce the reason. We can see from the overall positive tone of the review that the customer had a great experience at this place.",
+        "reason": "The aspect of \"place\" is positively described in the customer review because the customer found it to be wonderful. This indicates that the customer enjoyed the location, atmosphere, and overall environment of the place."
+      },
+      {
+        "augmented": true,
+        "review": "A cool bar with great food, and tons of excellent beer.",
+        "aspect": "bar",
+        "rationale": "determine the sentiment towards the aspect \"bar\" in this review.",
+        "reason": "The aspect \"bar\" is positively described in this review. The customer mentions that the bar is cool, which implies a positive atmosphere. Additionally, the customer also praises the great food and excellent beer available at the bar, indicating a positive experience with the offerings at the bar. Overall, the mention of a cool bar with great food and excellent beer suggests a positive sentiment towards the aspect \"bar\" in this review."
+      },
+      {
+        "augmented": true,
+        "review": "A cool bar with great food, and tons of excellent beer.",
+        "aspect": "food",
+        "rationale": "determine the sentiment towards the aspect of food in this review.",
+        "reason": "The customer describes the food at the bar as \"great,\" which indicates a positive sentiment towards this aspect. The use of the word \"great\" suggests that the customer enjoyed the food and found it to be of high quality. Therefore, the aspect of food in this review is positively described."
+      },
+      {
+        "review": "Also a little more expensive than your average bagel place.",
+        "aspects": {
+          "bagel": 0
+        }
+      },
+      {
+        "review": "A great choice at any cost and a great deal.",
+        "aspects": {
+          "cost": 1
+        }
+      },
+      {
+        "review": "All the NYU students love this place so it makes for a fun young atmosphere.",
+        "aspects": {
+          "atmosphere": 1
+        }
+      },
+      {
+        "review": "Also, don't plan on asking for your favorite roll, if it's not on the menu, you can't have it.",
+        "aspects": {
+          "roll": -1,
+          "menu": -1
+        }
+      },
+      {
+        "review": "All my co-workers were amazed at how small the dish was.",
+        "aspects": {
+          "dish": -1
+        }
+      },
+      {
+        "review": "And they provided a delicious dessert on the house!",
+        "aspects": {
+          "dessert": 1
+        }
+      },
+      {
+        "review": "After we got our sashimi order, I could not believe how small the portions were!",
+        "aspects": {
+          "sashimi": 0,
+          "portions": -1
+        }
+      },
+      {
+        "review": "After 2 tries by the waiter to take it away (we hadn't even looked at it yet, we had full beers yet to drink), the manager approached and told us they needed the table for people with reservations.",
+        "aspects": {
+          "waiter": -1,
+          "beers": 0,
+          "manager": -1,
+          "reservations": 1
+        }
+      },
+      {
+        "review": "Ambiance is barely romantic but management tries.",
+        "aspects": {
+          "Ambiance": -1,
+          "management": 1
+        }
+      },
+      {
+        "review": "And the Tom Kha soup was pathetic.",
+        "aspects": {
+          "Tom Kha soup": -1
+        }
+      },
+      {
+        "review": "All we received was an apology as we left to see our show without dinner.",
+        "aspects": {
+          "dinner": 0
+        }
+      },
+      {
+        "review": "Add to that great service and great food at a reasonable price and you have yourself the beginning of a great evening.",
+        "aspects": {
+          "service": 1,
+          "food": 1,
+          "price": 1
+        }
+      },
+      {
+        "review": "After a seafood craving, i checked citysearch and chose to go to Fish based on a previous review and the citysearch info.",
+        "aspects": {
+          "seafood": 0
+        }
+      }
+    ],
+    "signature_instructions": "\n    Using the customer review and given aspect, reason about whether the aspect is positive, neutral, or negative.\n    Think deeply about the aspect in the context of the entire review.\n    ",
+    "signature_prefix": "Reason:",
+    "extended_signature_instructions": "\n    Using the customer review and given aspect, reason about whether the aspect is positive, neutral, or negative.\n    Think deeply about the aspect in the context of the entire review.\n    ",
+    "extended_signature_prefix": "Reason:"
+  },
+  "generate_label.predictor": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "aspect": "place",
+        "reason": "The aspect of \"place\" is positively described in the customer review because the customer found it to be wonderful. This indicates that the customer enjoyed the location, atmosphere, and overall environment of the place.",
+        "reasoning": "produce the label. We can see that the customer specifically mentioned that they found the place to be wonderful, indicating a positive sentiment towards this aspect.",
+        "label": "1"
+      },
+      {
+        "augmented": true,
+        "aspect": "bar",
+        "reason": "The aspect \"bar\" is positively described in this review. The customer mentions that the bar is cool, which implies a positive atmosphere. Additionally, the customer also praises the great food and excellent beer available at the bar, indicating a positive experience with the offerings at the bar. Overall, the mention of a cool bar with great food and excellent beer suggests a positive sentiment towards the aspect \"bar\" in this review.",
+        "reasoning": "produce the label. We see that the customer mentions positive aspects such as a cool atmosphere, great food, and excellent beer at the bar. These positive descriptions lead us to label the aspect \"bar\" with a 1 for positive sentiment.",
+        "label": "1"
+      },
+      {
+        "augmented": true,
+        "aspect": "food",
+        "reason": "The customer describes the food at the bar as \"great,\" which indicates a positive sentiment towards this aspect. The use of the word \"great\" suggests that the customer enjoyed the food and found it to be of high quality. Therefore, the aspect of food in this review is positively described.",
+        "reasoning": "produce the label. We see that the customer used positive language (\"great\") to describe the food, indicating a positive sentiment towards this aspect.",
+        "label": "1"
+      },
+      {
+        "review": "After we got our sashimi order, I could not believe how small the portions were!",
+        "aspects": {
+          "sashimi": 0,
+          "portions": -1
+        }
+      },
+      {
+        "review": "And they provided a delicious dessert on the house!",
+        "aspects": {
+          "dessert": 1
+        }
+      },
+      {
+        "review": "And the Tom Kha soup was pathetic.",
+        "aspects": {
+          "Tom Kha soup": -1
+        }
+      },
+      {
+        "review": "Also, don't plan on asking for your favorite roll, if it's not on the menu, you can't have it.",
+        "aspects": {
+          "roll": -1,
+          "menu": -1
+        }
+      },
+      {
+        "review": "Ambiance is barely romantic but management tries.",
+        "aspects": {
+          "Ambiance": -1,
+          "management": 1
+        }
+      },
+      {
+        "review": "After 2 tries by the waiter to take it away (we hadn't even looked at it yet, we had full beers yet to drink), the manager approached and told us they needed the table for people with reservations.",
+        "aspects": {
+          "waiter": -1,
+          "beers": 0,
+          "manager": -1,
+          "reservations": 1
+        }
+      },
+      {
+        "review": "All we received was an apology as we left to see our show without dinner.",
+        "aspects": {
+          "dinner": 0
+        }
+      },
+      {
+        "review": "All my co-workers were amazed at how small the dish was.",
+        "aspects": {
+          "dish": -1
+        }
+      },
+      {
+        "review": "All the NYU students love this place so it makes for a fun young atmosphere.",
+        "aspects": {
+          "atmosphere": 1
+        }
+      },
+      {
+        "review": "Also a little more expensive than your average bagel place.",
+        "aspects": {
+          "bagel": 0
+        }
+      },
+      {
+        "review": "Add to that great service and great food at a reasonable price and you have yourself the beginning of a great evening.",
+        "aspects": {
+          "service": 1,
+          "food": 1,
+          "price": 1
+        }
+      },
+      {
+        "review": "After a seafood craving, i checked citysearch and chose to go to Fish based on a previous review and the citysearch info.",
+        "aspects": {
+          "seafood": 0
+        }
+      },
+      {
+        "review": "A great choice at any cost and a great deal.",
+        "aspects": {
+          "cost": 1
+        }
+      }
+    ],
+    "signature_instructions": "\n    Looks at the reason for whether the given aspect is positive, neutral, or negative, and labels it with a\n    ",
+    "signature_prefix": "Label:"
+  }
+}

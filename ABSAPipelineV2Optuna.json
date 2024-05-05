@@ -1,0 +1,56 @@
+{
+  "generate_aspects.predictor": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "review": "A very inviting restaurant, with friendly service.",
+        "aspects_with_label": {
+          "service": 1
+        },
+        "aspects_list": "dict_keys(['service'])"
+      }
+    ],
+    "signature_instructions": "\n    Identify aspects from a customer review. The aspects must be words or phrases in the review. The aspect\n    is typically a noun, and it must be the narrowest word or phrase possible. The response must be a valid Python list,\n    where each item is an aspect.\n    ",
+    "signature_prefix": "Aspects List:"
+  },
+  "generate_reasons": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "review": "Acceptable prices.",
+        "aspects_list": "['prices']",
+        "rationale": "produce the reasons. We will consider the overall tone of the review and any specific details mentioned about the prices.",
+        "reasons": "- prices: Positive. The customer specifically mentioned that the prices were acceptable, indicating that they found them reasonable. This suggests a positive experience with the pricing at the establishment."
+      }
+    ],
+    "signature_instructions": "\n    Using the customer review and list of aspects, reason about whether each aspect is positive, neutral, or negative.\n    Think deeply about each aspect in the context of the entire review.\n    ",
+    "signature_prefix": "Reasons:",
+    "extended_signature_instructions": "\n    Using the customer review and list of aspects, reason about whether each aspect is positive, neutral, or negative.\n    Think deeply about each aspect in the context of the entire review.\n    ",
+    "extended_signature_prefix": "Reasons:"
+  },
+  "generate_labels.predictor": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "review": "A narrow corridor leads to a tiny space where there are three tiny white tiled counters, a great deal of mess (stacks of bottles, cans) and a small counter holding 12-14 entrees.",
+        "aspects_with_label": {
+          "corridor": -1,
+          "space": -1,
+          "counters": -1,
+          "counter": -1,
+          "entrees": 0
+        },
+        "aspects_list": "dict_keys(['corridor', 'space', 'counters', 'counter', 'entrees'])"
+      }
+    ],
+    "signature_instructions": "\n    Labels each aspect as 1 meaning positive, 0 meaning neutral, and -1 meaning negative. The response must be a \n    valid Python dictionary, where each key is an aspect and the value is the integer label.\n    ",
+    "signature_prefix": "Aspects With Label:"
+  }
+}

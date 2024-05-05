@@ -1,0 +1,144 @@
+{
+  "generate_aspects.predictor": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "review": "A++   The service was good to excellent along with the attitude.",
+        "reasoning": "Aspects List: dict_keys(['service', 'attitude'])",
+        "aspects_list": "['service', 'attitude']"
+      },
+      {
+        "augmented": true,
+        "review": "A cool bar with great food, and tons of excellent beer.",
+        "reasoning": "produce the aspects_list. We identify the following aspects: 'bar', 'food', 'beer'.",
+        "aspects_list": "['bar', 'food', 'beer']"
+      },
+      {
+        "augmented": true,
+        "review": "Acceptable prices.",
+        "reasoning": "produce the aspects_list. We see that the review mentions \"prices\" as the main aspect.",
+        "aspects_list": "['prices']"
+      },
+      {
+        "review": "A cool place to hang with your friends for a couple of healthy drinks and desserts.",
+        "aspects_with_label": {
+          "place": 1,
+          "drinks": 1,
+          "desserts": 1
+        },
+        "aspects_list": "dict_keys(['place', 'drinks', 'desserts'])"
+      },
+      {
+        "review": "A must for all the Dosa lovers.",
+        "aspects_with_label": {
+          "Dosa": 1
+        },
+        "aspects_list": "dict_keys(['Dosa'])"
+      }
+    ],
+    "signature_instructions": "Identify key aspects from a customer review that provide insights into the dining experience, such as food quality, service, atmosphere, and pricing. Extract specific items or characteristics mentioned, including sushi, dosa, jalapeno, as well as general aspects like taste, presentation, and value. Capture both positive and negative feedback, including recommendations and warnings, to offer a comprehensive analysis of the review.",
+    "signature_prefix": "Aspects List:"
+  },
+  "generate_reasons": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "review": "Acceptable prices.",
+        "aspects_list": "['prices']",
+        "rationale": "produce the reasons. We will consider the overall tone of the review and any specific details mentioned about the prices.",
+        "reasons": "- prices: Positive. The customer specifically mentioned that the prices were acceptable, indicating that they found them reasonable. This suggests a positive experience with the pricing at the establishment."
+      },
+      {
+        "augmented": true,
+        "review": "$160 for 2 filets, 2 sides, an appetizer and drinks.",
+        "aspects_list": "['filets', 'sides', 'appetizer', 'drinks']",
+        "rationale": "determine the overall sentiment of the customer review. We will consider the price, quality, and overall dining experience.",
+        "reasons": "- Filets: Neutral. The customer does not mention the quality or taste of the filets, so it is difficult to determine if this aspect is positive or negative.\n- Sides: Neutral. Similar to the filets, the customer does not provide any feedback on the sides.\n- Appetizer: Neutral. Again, there is no mention of the appetizer in terms of taste or quality.\n- Drinks: Neutral. The customer does not comment on the drinks served.\n\nOverall, based on the lack of specific feedback on the food items and drinks, it is difficult to determine if the overall dining experience was positive, neutral, or negative. The price of $160 for 2 filets, 2 sides, an appetizer, and drinks may seem high depending on the quality and portion sizes."
+      },
+      {
+        "augmented": true,
+        "review": "A cool bar with great food, and tons of excellent beer.",
+        "aspects_list": "['bar', 'food', 'beer']",
+        "rationale": "produce the reasons. We will consider each aspect in the context of the entire review to determine if it is positive, neutral, or negative.",
+        "reasons": "- Bar: Positive. The review describes the bar as \"cool,\" indicating a positive atmosphere.\n- Food: Positive. The review mentions that the food is great, which is a positive aspect.\n- Beer: Positive. The review states that there are tons of excellent beer options, indicating a positive selection."
+      },
+      {
+        "review": "A great way to make some money is to buy a case of snapple from Costco and sell it right outside for only $2.50.",
+        "aspects_with_label": {
+          "case of snapple": 0
+        },
+        "aspects_list": "dict_keys(['case of snapple'])"
+      },
+      {
+        "review": "(food was delivered by a busboy, not waiter) We got no cheese offered for the pasta, our water and wine glasses remained EMPTY our entire meal, when we would have easily spent another $20 on wine.",
+        "aspects_with_label": {
+          "food": 0,
+          "busboy": -1,
+          "waiter": -1,
+          "cheese": -1,
+          "pasta": -1,
+          "water and wine glasses": -1,
+          "wine": 0,
+          "meal": 0
+        },
+        "aspects_list": "dict_keys(['food', 'busboy', 'waiter', 'cheese', 'pasta', 'water and wine glasses', 'wine', 'meal'])"
+      }
+    ],
+    "signature_instructions": "\n    Using the customer review and list of aspects, reason about whether each aspect is positive, neutral, or negative.\n    Think deeply about each aspect in the context of the entire review.\n    ",
+    "signature_prefix": "Reasons:",
+    "extended_signature_instructions": "Using the customer review and list of aspects, reason about whether each aspect is positive, neutral, or negative.\n    Think deeply about each aspect in the context of the entire review.",
+    "extended_signature_prefix": "Reasons:"
+  },
+  "generate_labels.predictor": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "aspects_list": "['service', 'attitude']",
+        "reasons": "- Service: Positive. The customer mentioned that the service was \"good to excellent,\" indicating a high level of satisfaction with the service provided.\n- Attitude: Positive. The customer also mentioned that the attitude was good, which suggests that the staff members were friendly and helpful.",
+        "reasoning": "{\"value\": {\"service\": 1, \"attitude\": 1}}",
+        "aspects_with_label": "{\"value\": {\"service\": 1, \"attitude\": 1}}"
+      },
+      {
+        "augmented": true,
+        "aspects_list": "['bar', 'food', 'beer']",
+        "reasons": "- Bar: Positive. The review describes the bar as \"cool,\" indicating a positive atmosphere.\n- Food: Positive. The review mentions that the food is great, which is a positive aspect.\n- Beer: Positive. The review states that there are tons of excellent beer options, indicating a positive selection.",
+        "reasoning": "{\"value\": {\"bar\": 1, \"food\": 1, \"beer\": 1}}",
+        "aspects_with_label": "{\"value\": {\"bar\": 1, \"food\": 1, \"beer\": 1}}"
+      },
+      {
+        "augmented": true,
+        "aspects_list": "['prices']",
+        "reasons": "- prices: Positive. The customer specifically mentioned that the prices were acceptable, indicating that they found them reasonable. This suggests a positive experience with the pricing at the establishment.",
+        "reasoning": "{\"value\":{\"prices\":1}}",
+        "aspects_with_label": "{\"value\":{\"prices\":1}}"
+      },
+      {
+        "review": "A cool place to hang with your friends for a couple of healthy drinks and desserts.",
+        "aspects_with_label": {
+          "place": 1,
+          "drinks": 1,
+          "desserts": 1
+        },
+        "aspects_list": "dict_keys(['place', 'drinks', 'desserts'])"
+      },
+      {
+        "review": "A must for all the Dosa lovers.",
+        "aspects_with_label": {
+          "Dosa": 1
+        },
+        "aspects_list": "dict_keys(['Dosa'])"
+      }
+    ],
+    "signature_instructions": "Assign a sentiment value to each aspect mentioned in the review, indicating whether it is positive, negative, or neutral based on the customer's feedback. Use a scale of 1 for positive, 0 for neutral, and -1 for negative sentiment.",
+    "signature_prefix": "Sentiment Analysis:"
+  }
+}

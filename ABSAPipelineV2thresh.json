@@ -1,0 +1,402 @@
+{
+  "generate_aspects.predictor": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "review": "A wonderful place!",
+        "reasoning": "Aspects List: dict_keys(['place'])",
+        "aspects_list": "['place']"
+      },
+      {
+        "augmented": true,
+        "review": "A glass of Leaping Lizard, a glass of prosecco, and the mussels had everything happy.",
+        "reasoning": "Aspects List: dict_keys(['glass of Leaping Lizard', 'glass of prosecco', 'mussels'])",
+        "aspects_list": "['glass of Leaping Lizard', 'glass of prosecco', 'mussels']"
+      },
+      {
+        "augmented": true,
+        "review": "Acceptable prices.",
+        "reasoning": "Aspects List: dict_keys(['prices'])",
+        "aspects_list": "['prices']"
+      },
+      {
+        "augmented": true,
+        "review": "A cool bar with great food, and tons of excellent beer.",
+        "reasoning": "Aspects List: dict_keys(['bar', 'food', 'beer'])",
+        "aspects_list": "['bar', 'food', 'beer']"
+      },
+      {
+        "review": "($200 for 2 glasses of champagne, not too expensive bottle of wine and 2 after dinner drinks).",
+        "aspects_with_label": {
+          "glasses of champagne": -1,
+          "bottle of wine": -1,
+          "after dinner drinks": -1
+        },
+        "aspects_list": "dict_keys(['glasses of champagne', 'bottle of wine', 'after dinner drinks'])"
+      },
+      {
+        "review": "A great way to make some money is to buy a case of snapple from Costco and sell it right outside for only $2.50.",
+        "aspects_with_label": {
+          "case of snapple": 0
+        },
+        "aspects_list": "dict_keys(['case of snapple'])"
+      },
+      {
+        "review": "A large is $20, and toppings are about $3 each.",
+        "aspects_with_label": {
+          "toppings": 0
+        },
+        "aspects_list": "dict_keys(['toppings'])"
+      },
+      {
+        "review": "A few tips: skip the turnip cake, roast pork buns and egg custards.",
+        "aspects_with_label": {
+          "turnip cake": -1,
+          "roast pork buns": -1,
+          "egg custards": -1
+        },
+        "aspects_list": "dict_keys(['turnip cake', 'roast pork buns', 'egg custards'])"
+      },
+      {
+        "review": "- the bread at the beginning is super tasty and makes you want more - the pizza is delicious and comes in personal sizes, however be warned that the Peter's Favourite pizza with prosciutto and baby arugula is actually a margarite pizza with cold prosciutto and baby arugula on top, like a salad.",
+        "aspects_with_label": {
+          "bread": 1,
+          "pizza": 1,
+          "margarite pizza with cold prosciutto and baby arugula on top": 0,
+          "salad": 0,
+          "Peter's Favourite pizza with prosciutto and baby arugula": 0
+        },
+        "aspects_list": "dict_keys(['bread', 'pizza', 'margarite pizza with cold prosciutto and baby arugula on top', 'salad', \"Peter's Favourite pizza with prosciutto and baby arugula\"])"
+      },
+      {
+        "review": "A must for all the Dosa lovers.",
+        "aspects_with_label": {
+          "Dosa": 1
+        },
+        "aspects_list": "dict_keys(['Dosa'])"
+      },
+      {
+        "review": "A cheap eat for NYC, but not for dosa.",
+        "aspects_with_label": {
+          "dosa": -1,
+          "eat": 1
+        },
+        "aspects_list": "dict_keys(['dosa', 'eat'])"
+      },
+      {
+        "review": "$20 for all you can eat sushi cannot be beaten.",
+        "aspects_with_label": {
+          "sushi": 0
+        },
+        "aspects_list": "dict_keys(['sushi'])"
+      },
+      {
+        "review": "(Always ask the bartender for the SEASONAL beer!!!",
+        "aspects_with_label": {
+          "SEASONAL beer": 1,
+          "bartender": 0
+        },
+        "aspects_list": "dict_keys(['SEASONAL beer', 'bartender'])"
+      },
+      {
+        "review": "Add to that great service and great food at a reasonable price and you have yourself the beginning of a great evening.",
+        "aspects_with_label": {
+          "service": 1,
+          "food": 1,
+          "price": 1
+        },
+        "aspects_list": "dict_keys(['service', 'food', 'price'])"
+      },
+      {
+        "review": "A touch more jalapeno heat for contrast and it would have been very good indeed.",
+        "aspects_with_label": {
+          "jalapeno": 1
+        },
+        "aspects_list": "dict_keys(['jalapeno'])"
+      },
+      {
+        "review": "A++   The service was good to excellent along with the attitude.",
+        "aspects_with_label": {
+          "service": 1,
+          "attitude": 1
+        },
+        "aspects_list": "dict_keys(['service', 'attitude'])"
+      }
+    ],
+    "signature_instructions": "\n    Identify aspects from a customer review. The aspects must be words or phrases in the review. The aspect\n    is typically a noun, and it must be the narrowest word or phrase possible. The response must be a valid Python list,\n    where each item is an aspect.\n    ",
+    "signature_prefix": "Aspects List:"
+  },
+  "generate_reasons": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "review": "A wonderful place!",
+        "aspects_list": "['place']",
+        "rationale": "produce the reasons. We will consider the overall tone of the review and any specific details mentioned about the aspect.",
+        "reasons": "- place: positive (The review overall is positive, describing the place as wonderful.)"
+      },
+      {
+        "augmented": true,
+        "review": "A glass of Leaping Lizard, a glass of prosecco, and the mussels had everything happy.",
+        "aspects_list": "['glass of Leaping Lizard', 'glass of prosecco', 'mussels']",
+        "rationale": "determine the sentiment of each aspect. We will consider the overall tone of the review and the specific details mentioned about each aspect.",
+        "reasons": "- Glass of Leaping Lizard: Positive. The customer mentioned this item first, which could indicate it was a standout or enjoyable part of their experience.\n- Glass of prosecco: Positive. The customer specifically mentioned having a glass of prosecco, which suggests they enjoyed it.\n- Mussels: Positive. The customer stated that the mussels had \"everything happy,\" which implies they were satisfied with this dish."
+      },
+      {
+        "augmented": true,
+        "review": "Acceptable prices.",
+        "aspects_list": "['prices']",
+        "rationale": "produce the reasons. We will consider the overall tone of the review and any specific details mentioned about the prices.",
+        "reasons": "- prices: Positive. The customer specifically mentioned that the prices were acceptable, indicating that they found them reasonable. This suggests a positive experience with the pricing at the establishment."
+      },
+      {
+        "augmented": true,
+        "review": "A cool bar with great food, and tons of excellent beer.",
+        "aspects_list": "['bar', 'food', 'beer']",
+        "rationale": "produce the reasons. We will consider each aspect in the context of the entire review to determine if it is positive, neutral, or negative.",
+        "reasons": "- Bar: Positive. The review describes the bar as \"cool,\" indicating a positive atmosphere.\n- Food: Positive. The review mentions that the food is great, which is a positive aspect.\n- Beer: Positive. The review states that there are tons of excellent beer options, indicating a positive selection."
+      },
+      {
+        "review": "A few tips: skip the turnip cake, roast pork buns and egg custards.",
+        "aspects_with_label": {
+          "turnip cake": -1,
+          "roast pork buns": -1,
+          "egg custards": -1
+        },
+        "aspects_list": "dict_keys(['turnip cake', 'roast pork buns', 'egg custards'])"
+      },
+      {
+        "review": "(Always ask the bartender for the SEASONAL beer!!!",
+        "aspects_with_label": {
+          "SEASONAL beer": 1,
+          "bartender": 0
+        },
+        "aspects_list": "dict_keys(['SEASONAL beer', 'bartender'])"
+      },
+      {
+        "review": "A large is $20, and toppings are about $3 each.",
+        "aspects_with_label": {
+          "toppings": 0
+        },
+        "aspects_list": "dict_keys(['toppings'])"
+      },
+      {
+        "review": "- the bread at the beginning is super tasty and makes you want more - the pizza is delicious and comes in personal sizes, however be warned that the Peter's Favourite pizza with prosciutto and baby arugula is actually a margarite pizza with cold prosciutto and baby arugula on top, like a salad.",
+        "aspects_with_label": {
+          "bread": 1,
+          "pizza": 1,
+          "margarite pizza with cold prosciutto and baby arugula on top": 0,
+          "salad": 0,
+          "Peter's Favourite pizza with prosciutto and baby arugula": 0
+        },
+        "aspects_list": "dict_keys(['bread', 'pizza', 'margarite pizza with cold prosciutto and baby arugula on top', 'salad', \"Peter's Favourite pizza with prosciutto and baby arugula\"])"
+      },
+      {
+        "review": "Add to that great service and great food at a reasonable price and you have yourself the beginning of a great evening.",
+        "aspects_with_label": {
+          "service": 1,
+          "food": 1,
+          "price": 1
+        },
+        "aspects_list": "dict_keys(['service', 'food', 'price'])"
+      },
+      {
+        "review": "A cheap eat for NYC, but not for dosa.",
+        "aspects_with_label": {
+          "dosa": -1,
+          "eat": 1
+        },
+        "aspects_list": "dict_keys(['dosa', 'eat'])"
+      },
+      {
+        "review": "($200 for 2 glasses of champagne, not too expensive bottle of wine and 2 after dinner drinks).",
+        "aspects_with_label": {
+          "glasses of champagne": -1,
+          "bottle of wine": -1,
+          "after dinner drinks": -1
+        },
+        "aspects_list": "dict_keys(['glasses of champagne', 'bottle of wine', 'after dinner drinks'])"
+      },
+      {
+        "review": "A touch more jalapeno heat for contrast and it would have been very good indeed.",
+        "aspects_with_label": {
+          "jalapeno": 1
+        },
+        "aspects_list": "dict_keys(['jalapeno'])"
+      },
+      {
+        "review": "$20 for all you can eat sushi cannot be beaten.",
+        "aspects_with_label": {
+          "sushi": 0
+        },
+        "aspects_list": "dict_keys(['sushi'])"
+      },
+      {
+        "review": "A++   The service was good to excellent along with the attitude.",
+        "aspects_with_label": {
+          "service": 1,
+          "attitude": 1
+        },
+        "aspects_list": "dict_keys(['service', 'attitude'])"
+      },
+      {
+        "review": "A must for all the Dosa lovers.",
+        "aspects_with_label": {
+          "Dosa": 1
+        },
+        "aspects_list": "dict_keys(['Dosa'])"
+      },
+      {
+        "review": "A great way to make some money is to buy a case of snapple from Costco and sell it right outside for only $2.50.",
+        "aspects_with_label": {
+          "case of snapple": 0
+        },
+        "aspects_list": "dict_keys(['case of snapple'])"
+      }
+    ],
+    "signature_instructions": "\n    Using the customer review and list of aspects, reason about whether each aspect is positive, neutral, or negative.\n    Think deeply about each aspect in the context of the entire review.\n    ",
+    "signature_prefix": "Reasons:",
+    "extended_signature_instructions": "\n    Using the customer review and list of aspects, reason about whether each aspect is positive, neutral, or negative.\n    Think deeply about each aspect in the context of the entire review.\n    ",
+    "extended_signature_prefix": "Reasons:"
+  },
+  "generate_labels.predictor": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "aspects_list": "['place']",
+        "reasons": "- place: positive (The review overall is positive, describing the place as wonderful.)",
+        "reasoning": "{\"value\":{\"place\":1}}",
+        "aspects_with_label": "{\"value\":{\"place\":1}}"
+      },
+      {
+        "augmented": true,
+        "aspects_list": "['glass of Leaping Lizard', 'glass of prosecco', 'mussels']",
+        "reasons": "- Glass of Leaping Lizard: Positive. The customer mentioned this item first, which could indicate it was a standout or enjoyable part of their experience.\n- Glass of prosecco: Positive. The customer specifically mentioned having a glass of prosecco, which suggests they enjoyed it.\n- Mussels: Positive. The customer stated that the mussels had \"everything happy,\" which implies they were satisfied with this dish.",
+        "reasoning": "{\"value\":{\"glass of Leaping Lizard\":1,\"glass of prosecco\":1,\"mussels\":1}}",
+        "aspects_with_label": "{\"value\":{\"glass of Leaping Lizard\":1,\"glass of prosecco\":1,\"mussels\":1}}"
+      },
+      {
+        "augmented": true,
+        "aspects_list": "['prices']",
+        "reasons": "- prices: Positive. The customer specifically mentioned that the prices were acceptable, indicating that they found them reasonable. This suggests a positive experience with the pricing at the establishment.",
+        "reasoning": "Aspects With Label: \n\n{\n  \"value\": {\n    \"prices\": 1\n  }\n}",
+        "aspects_with_label": "{\n  \"value\": {\n    \"prices\": 1\n  }\n}"
+      },
+      {
+        "augmented": true,
+        "aspects_list": "['bar', 'food', 'beer']",
+        "reasons": "- Bar: Positive. The review describes the bar as \"cool,\" indicating a positive atmosphere.\n- Food: Positive. The review mentions that the food is great, which is a positive aspect.\n- Beer: Positive. The review states that there are tons of excellent beer options, indicating a positive selection.",
+        "reasoning": "{\"value\": {\"bar\": 1, \"food\": 1, \"beer\": 1}}",
+        "aspects_with_label": "{\"value\": {\"bar\": 1, \"food\": 1, \"beer\": 1}}"
+      },
+      {
+        "review": "(Always ask the bartender for the SEASONAL beer!!!",
+        "aspects_with_label": {
+          "SEASONAL beer": 1,
+          "bartender": 0
+        },
+        "aspects_list": "dict_keys(['SEASONAL beer', 'bartender'])"
+      },
+      {
+        "review": "A great way to make some money is to buy a case of snapple from Costco and sell it right outside for only $2.50.",
+        "aspects_with_label": {
+          "case of snapple": 0
+        },
+        "aspects_list": "dict_keys(['case of snapple'])"
+      },
+      {
+        "review": "A cheap eat for NYC, but not for dosa.",
+        "aspects_with_label": {
+          "dosa": -1,
+          "eat": 1
+        },
+        "aspects_list": "dict_keys(['dosa', 'eat'])"
+      },
+      {
+        "review": "A touch more jalapeno heat for contrast and it would have been very good indeed.",
+        "aspects_with_label": {
+          "jalapeno": 1
+        },
+        "aspects_list": "dict_keys(['jalapeno'])"
+      },
+      {
+        "review": "A must for all the Dosa lovers.",
+        "aspects_with_label": {
+          "Dosa": 1
+        },
+        "aspects_list": "dict_keys(['Dosa'])"
+      },
+      {
+        "review": "A large is $20, and toppings are about $3 each.",
+        "aspects_with_label": {
+          "toppings": 0
+        },
+        "aspects_list": "dict_keys(['toppings'])"
+      },
+      {
+        "review": "- the bread at the beginning is super tasty and makes you want more - the pizza is delicious and comes in personal sizes, however be warned that the Peter's Favourite pizza with prosciutto and baby arugula is actually a margarite pizza with cold prosciutto and baby arugula on top, like a salad.",
+        "aspects_with_label": {
+          "bread": 1,
+          "pizza": 1,
+          "margarite pizza with cold prosciutto and baby arugula on top": 0,
+          "salad": 0,
+          "Peter's Favourite pizza with prosciutto and baby arugula": 0
+        },
+        "aspects_list": "dict_keys(['bread', 'pizza', 'margarite pizza with cold prosciutto and baby arugula on top', 'salad', \"Peter's Favourite pizza with prosciutto and baby arugula\"])"
+      },
+      {
+        "review": "($200 for 2 glasses of champagne, not too expensive bottle of wine and 2 after dinner drinks).",
+        "aspects_with_label": {
+          "glasses of champagne": -1,
+          "bottle of wine": -1,
+          "after dinner drinks": -1
+        },
+        "aspects_list": "dict_keys(['glasses of champagne', 'bottle of wine', 'after dinner drinks'])"
+      },
+      {
+        "review": "$20 for all you can eat sushi cannot be beaten.",
+        "aspects_with_label": {
+          "sushi": 0
+        },
+        "aspects_list": "dict_keys(['sushi'])"
+      },
+      {
+        "review": "Add to that great service and great food at a reasonable price and you have yourself the beginning of a great evening.",
+        "aspects_with_label": {
+          "service": 1,
+          "food": 1,
+          "price": 1
+        },
+        "aspects_list": "dict_keys(['service', 'food', 'price'])"
+      },
+      {
+        "review": "A++   The service was good to excellent along with the attitude.",
+        "aspects_with_label": {
+          "service": 1,
+          "attitude": 1
+        },
+        "aspects_list": "dict_keys(['service', 'attitude'])"
+      },
+      {
+        "review": "A few tips: skip the turnip cake, roast pork buns and egg custards.",
+        "aspects_with_label": {
+          "turnip cake": -1,
+          "roast pork buns": -1,
+          "egg custards": -1
+        },
+        "aspects_list": "dict_keys(['turnip cake', 'roast pork buns', 'egg custards'])"
+      }
+    ],
+    "signature_instructions": "\n    Labels each aspect as 1 meaning positive, 0 meaning neutral, and -1 meaning negative. The response must be a \n    valid Python dictionary, where each key is an aspect and the value is the integer label.\n    ",
+    "signature_prefix": "Aspects With Label:"
+  }
+}
